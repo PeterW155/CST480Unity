@@ -25,6 +25,7 @@ public class Test2 : MonoBehaviour
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
             StreamReader reader = new StreamReader(response.GetResponseStream());
             string jsonResponse = reader.ReadToEnd();
+            reader.Close();
             APITest message = JsonUtility.FromJson<APITest>(jsonResponse);
             Debug.Log(message);
         }
