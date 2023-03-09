@@ -19,6 +19,18 @@ public class APITest : MonoBehaviour
     public void Call()
     {
         Debug.Log("Private Button clicked");
+        CallAPI();
+        /*HttpWebRequest request = (HttpWebRequest)WebRequest.Create(String.Format("http://localhost:3000/api/private"));
+        HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+        StreamReader reader = new StreamReader(response.GetResponseStream());
+        string jsonResponse = reader.ReadToEnd();
+        APITest message = JsonUtility.FromJson<APITest>(jsonResponse);
+        Debug.Log(message);*/
+
+    }
+
+    IEnumerator CallAPI()
+    {
         try
         {
             Debug.Log("Entered Try");
@@ -40,12 +52,6 @@ public class APITest : MonoBehaviour
         {
             Debug.Log("Got an error");
         }
-        /*HttpWebRequest request = (HttpWebRequest)WebRequest.Create(String.Format("http://localhost:3000/api/private"));
-        HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-        StreamReader reader = new StreamReader(response.GetResponseStream());
-        string jsonResponse = reader.ReadToEnd();
-        APITest message = JsonUtility.FromJson<APITest>(jsonResponse);
-        Debug.Log(message);*/
-
+        return null;
     }
 }
